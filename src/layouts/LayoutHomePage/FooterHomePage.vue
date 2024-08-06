@@ -1,15 +1,15 @@
 <template>
   <div>
-    <router-view />
+    Footer Home Page
   </div>
 </template>
 
 <script>
-
 export default {
-  name: 'App',
+  name: 'FooterHomePage'
 }
 </script>
 
 <style>
+
 </style>

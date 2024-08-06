@@ -1,15 +1,14 @@
 <template>
   <div>
-    <router-view />
   </div>
 </template>
 
 <script>
-
 export default {
-  name: 'App',
+  name: 'PageNo1'
 }
 </script>
 
 <style>
+
 </style>

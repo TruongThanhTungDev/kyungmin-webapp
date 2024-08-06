@@ -1,15 +1,15 @@
 <template>
   <div>
-    <router-view />
+    Footer Children
   </div>
 </template>
 
 <script>
-
 export default {
-  name: 'App',
+  name: 'FooterChildrenPage'
 }
 </script>
 
 <style>
+
 </style>

@@ -1,15 +1,15 @@
 <template>
   <div>
-    <router-view />
+    Header Children
   </div>
 </template>
 
 <script>
-
 export default {
-  name: 'App',
+  name: 'HeaderChildrenPage'
 }
 </script>
 
 <style>
+
 </style>
