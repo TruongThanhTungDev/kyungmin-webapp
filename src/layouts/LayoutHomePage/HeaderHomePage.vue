@@ -11,6 +11,9 @@
               {{menu.name}}
             </router-link>
           </div>
+          <div class="flex justify-end">
+            <search-header/>
+          </div>
         </div>
       </div>
       <div class="flex justify-center mx-auto gap-4 mb-[130px] w-[55%]">
@@ -22,8 +25,9 @@
 
 <script>
 import CardHeader from '@/components/CardHeader.vue';
+import SearchHeader from '@/components/SearchHeader.vue';
 export default {
-  components: { CardHeader },
+  components: { CardHeader, SearchHeader },
   name: "HeaderHomePage",
   data() {
     return {
