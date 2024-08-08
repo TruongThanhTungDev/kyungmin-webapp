@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 const routes = [
   {
     path: "",
-    name: "Kyungmin Highscholl Home",
+    name: "Kyungmin College Home",
     component: () => import("../layouts/LayoutHomePage/LayoutHomePage.vue"),
     children: [
       {
@@ -14,7 +14,7 @@ const routes = [
   },
   {
     path: "/:name",
-    name: "Kyungmin Highscholl",
+    name: "Kyungmin College",
     component: () =>
       import("../layouts/LayoutChildrenPage/LayoutChildrenPage.vue"),
     children: [
