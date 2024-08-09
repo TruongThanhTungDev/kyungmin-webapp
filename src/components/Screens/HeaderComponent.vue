@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: "HeaderChildrenPage",
+  name: "HeaderComponent",
   data() {
     return {
       dataMenu: [
@@ -25,10 +25,28 @@ export default {
 
 <template>
   <div class="w-full h-auto bg-[#00264B]">
-    <div class="mx-auto xl:max-w-[1200px] py-[18px] flex justify-between px-4">
-      <div class="flex justify-start">
+    <div
+      class="mx-auto xl:max-w-[1200px] lg:py-[18px] lg:flex lg:justify-between border-b border-b-white lg:border-b-0"
+    >
+      <div class="flex justify-start px-4 pt-[18px] lg:pt-0 relative">
+        <div class="text-white flex justify-center items-center lg:hidden">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+            />
+          </svg>
+        </div>
         <div
-          class="w-[213px] h-full cursor-pointer py-1 flex justify-start items-center"
+          class="w-full lg:w-[213px] h-full cursor-pointer py-1 flex justify-center lg:justify-start items-center"
         >
           <router-link to="/">
             <div class="w-[165px] h-[40px]">
@@ -39,12 +57,12 @@ export default {
               /></div
           ></router-link>
         </div>
-        <nav class="mt-4 text-[16px]">
+        <nav class="mt-4 text-[16px] hidden lg:block">
           <ul class="flex space-x-4">
             <li
               v-for="(item, index) in dataMenu"
               :key="index"
-              class="text-white cursor-pointer px-[4px] py-1"
+              class="text-white cursor-pointer px-[4px] py-1 hover:text-[#ccc]"
             >
               <router-link :to="`${item.value}`" class="cursor-pointer"
                 >{{ item.title }}
@@ -53,7 +71,7 @@ export default {
           </ul>
         </nav>
       </div>
-      <div class="flex justify-end items-center">
+      <div class="hidden xl:flex xl:justify-end xl:items-center">
         <div class="w-[168px]">
           <form class="w-full text-[14px]">
             <div class="flex w-full border-b border-b-white pb-1">
@@ -85,7 +103,7 @@ export default {
             <div
               v-for="(item, index) in subMenu"
               :key="index"
-              class="text-white text-[13px] flex"
+              class="text-white text-[13px] flex hover:text-[#ccc]"
             >
               <router-link :to="`${item.value}`" class="cursor-pointer"
                 >{{ item.title }}
@@ -99,6 +117,32 @@ export default {
             </div>
           </div>
         </div>
+      </div>
+
+      <div
+        class="w-full border-t border-t-white border-b border-b-white mt-[10px] lg:hidden"
+      >
+        <nav
+          class="mt-4 px-[40px] text-[14px] min-w-[1000px] max-w-2500px] overflow-x-auto"
+        >
+          <ul class="flex space-x-6">
+            <li
+              v-for="(item, index) in dataMenu"
+              :key="index"
+              class="text-white cursor-pointer px-[4px] py-1 hover:text-[#ccc]"
+            >
+              <router-link :to="`${item.value}`" class="cursor-pointer"
+                >{{ item.title }}
+              </router-link>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <div
+        class="absolute top-0 left-0 w-full h-[100vh] bg-black bg-opacity-35"
+      >
+        <div class="w-[75%] h-[100vh] bg-white"></div>
       </div>
     </div>
   </div>

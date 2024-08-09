@@ -1,12 +1,8 @@
 <script>
 import { ref } from "vue";
-import { Swiper, SwiperSlide } from "swiper/vue";
 import LiteYouTubeEmbed from "vue-lite-youtube-embed";
-import "swiper/swiper-bundle.css";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
+import "vue3-carousel/dist/carousel.css";
+import { Carousel, Slide, Pagination } from "vue3-carousel";
 
 export default {
   name: "ChildrenPage",
@@ -16,11 +12,7 @@ export default {
       default: "",
     },
   },
-  components: {
-    Swiper,
-    SwiperSlide,
-    LiteYouTubeEmbed,
-  },
+  components: { Carousel, Slide, Pagination, LiteYouTubeEmbed },
   data() {
     return {
       dataCard: [
@@ -59,6 +51,30 @@ export default {
         "https://cdn.imweb.me/thumbnail/20240704/eb47e80ad5a19.png",
         "https://cdn.imweb.me/thumbnail/20240704/2bbd058dbae16.png",
       ],
+      settings: {
+        autoplay: 1500,
+        transition: 300,
+        wrapAround: true,
+        pauseAutoplayOnHover: true,
+      },
+      breakpoints: {
+        640: {
+          itemsToShow: 1,
+          spaceBetween: 0,
+        },
+        768: {
+          itemsToShow: 2,
+          spaceBetween: 0,
+        },
+        1024: {
+          itemsToShow: 3,
+          spaceBetween: 40,
+        },
+        1900: {
+          itemsToShow: 5,
+          spaceBetween: 40,
+        },
+      },
     };
   },
 };
@@ -83,8 +99,10 @@ iframe.value?.playVideo();
       "
     >
       <div class="mx-auto xl:max-w-[1024px] py-[18px]">
-        <div class="w-full h-[500px]"></div>
-        <div class="w-full h-[125px] grid grid-cols-4 gap-4">
+        <div class="w-full h-[80px] lg:h-[500px]"></div>
+        <div
+          class="w-full px-4 lg:h-[125px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
+        >
           <div
             class="card-department"
             v-for="(card, index) in dataCard"
@@ -125,22 +143,17 @@ iframe.value?.playVideo();
 
     <section class="bg-[#F2F2F2] py-[100px]">
       <p class="text-center text-[28px]">소방안전관 <strong>리학과</strong></p>
-      <div>
-        <Swiper
-          :slides-per-view="5"
-          :autoplay="{ delay: 1500, disableOnInteraction: false }"
-          :loop="true"
-          :space-between="0"
-        >
-          <SwiperSlide v-for="(slide, index) in dataSlide" :key="index"
+      <div class="mt-[60px]">
+        <carousel v-bind="settings" :breakpoints="breakpoints">
+          <slide v-for="(slide, index) in dataSlide" :key="index"
             ><div class="w-[350px] h-auto">
               <img
                 :src="slide"
                 alt="slide"
                 class="w-full min-h-[343px] object-cover"
               /></div
-          ></SwiperSlide>
-        </Swiper>
+          ></slide>
+        </carousel>
       </div>
     </section>
 
@@ -180,29 +193,36 @@ iframe.value?.playVideo();
     </section>
 
     <section class="w-full h-[622px]">
-      <swiper
-        :slides-per-view="1"
-        :speed="1000"
-        :autoplay="{ delay: 2500, disableOnInteraction: false }"
+      <carousel
+        :items-to-show="1"
+        :autoplay="3500"
+        :transition="300"
+        :wrapAround="true"
+        :pauseAutoplayOnHover="true"
         :pagination="{ clickable: true }"
-        :loop="true"
-        class="w-dull h-full"
       >
-        <swiper-slide v-for="(slide, index) in dataBanner" :key="index"
-          ><div class="w-full h-full">
+        <slide v-for="(slide, index) in dataBanner" :key="index"
+          ><div class="w-full h-[622px]">
             <img
               :src="slide"
               alt="slide"
               class="w-full h-full object-cover"
             /></div
-        ></swiper-slide>
-      </swiper>
+        ></slide>
+        <template #addons>
+          <div class="carousel-pagination">
+            <Pagination />
+          </div>
+        </template>
+      </carousel>
     </section>
 
     <section class="bg-[#F2F2F2] py-[100px]">
       <p class="text-center text-[28px]">소방안전관 <strong>리학과</strong></p>
       <div class="mx-auto xl:max-w-[1200px] py-[18px]">
-        <div class="grid grid-cols-4 gap-4">
+        <div
+          class="grid px-4 xl:px-0 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"
+        >
           <div
             class=""
             v-for="(item, index) in [
@@ -225,8 +245,10 @@ iframe.value?.playVideo();
     </section>
 
     <section class="bg-[#F2F2F2] pt-[60px]">
-      <div class="mx-auto xl:max-w-[1200px]">
-        <div class="grid grid-cols-6 gap-2">
+      <div class="mx-auto xl:max-w-[1200px] px-4 xl:px-0">
+        <div
+          class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 lg:gap-2"
+        >
           <div
             v-for="(item, index) in [
               { title: '모집 공고', icon: 'fa-solid fa-bell', url: '' },
@@ -253,7 +275,7 @@ iframe.value?.playVideo();
           >
             <div class="notifi-overlay"></div>
             <i :class="item.icon" class="notifi-icon"></i>
-            <p class="text-[20px] mt-[30px] h-[40px] pr-[60px]">
+            <p class="text-[20px] mt-[30px] h-[40px] xl:pr-[60px]">
               <strong>{{ item.title }}</strong>
             </p>
             <div class="card-icon">
@@ -285,7 +307,7 @@ iframe.value?.playVideo();
       <p class="text-center text-white text-[28px]">
         <strong>Media Contents</strong>
       </p>
-      <div class="mx-auto w-full xl:max-w-[1200px]">
+      <div class="mx-auto w-full xl:max-w-[1200px] px-4 lg:px-0">
         <div class="w-full flex justify-end items-center">
           <a href="https://www.youtube.com/channel/UCLqQRb5ba7ZKRlt0twQExmA">
             <div class="more-item">
@@ -311,12 +333,14 @@ iframe.value?.playVideo();
         </div>
       </div>
       <div class="w-full h-[1px] bg-white my-3"></div>
-      <div class="mx-auto w-full xl:max-w-[1200px] mt-[49px] mb-[40px]">
-        <div class="grid grid-cols-3">
+      <div
+        class="mx-auto w-full xl:max-w-[1200px] mt-[49px] mb-[40px] px-4 xl:px-0"
+      >
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-0">
           <div
             v-for="(item, index) in [
               {
-                title: '[전과자] ',
+                title: '[전과자]',
                 sub: '소방관이 알려주는 신박한 불끄는 법',
                 videoId: 'sgu4TiNucEs',
               },
@@ -333,7 +357,7 @@ iframe.value?.playVideo();
             ]"
             :key="index"
           >
-            <p class="text-center text-white mb-[15px]">
+            <p class="text-center text-white h-[40px]">
               <strong>{{ item.title }}</strong> {{ item.sub }}
             </p>
             <LiteYouTubeEmbed
@@ -344,12 +368,37 @@ iframe.value?.playVideo();
           </div>
         </div>
       </div>
-      
     </section>
   </div>
 </template>
 
 <style>
+/** change pagination carousel */
+.carousel-pagination {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+}
+
+.carousel__pagination-button::after {
+  display: none;
+}
+
+.carousel__pagination-button {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  margin: 0px 8px;
+}
+
+.carousel__pagination-button--active {
+  background-color: #fff;
+}
+
 /** More item css */
 .more-item {
   display: flex;
@@ -467,6 +516,18 @@ iframe.value?.playVideo();
 
   100% {
     margin-top: 35px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .card-department:hover {
+    margin-top: 0px;
+  }
+
+  .card-department:hover .card-description {
+    display: block;
+    margin-top: 35px;
+    animation: none 0.1s ease-in;
   }
 }
 </style>

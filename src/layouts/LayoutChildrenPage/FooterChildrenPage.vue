@@ -32,7 +32,7 @@ export default {
               v-for="(item, index) in dataFooter"
               :key="index"
               :to="`${item.value}`"
-              class="cursor-pointer"
+              class="cursor-pointer hover:text-[#001D33]"
               >{{ item.title }} ・
             </router-link>
           </p>
@@ -41,6 +41,7 @@ export default {
               v-for="(item, index) in subFooter"
               :key="index"
               :to="`${item.value}`"
+              class="cursor-pointer hover:text-[#001D33]"
               >{{ item.title }}<span v-if="index !== 2"> ・</span>
             </router-link>
           </p>
