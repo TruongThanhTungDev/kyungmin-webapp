@@ -5,6 +5,7 @@ import "./index.css";
 import "ant-design-vue/dist/reset.css";
 import router from "./router/index.js";
 import "vue-lite-youtube-embed/style.css";
+import "vue3-carousel/dist/carousel.css";
 
 const app = createApp({
   render() {

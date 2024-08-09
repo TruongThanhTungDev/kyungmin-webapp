@@ -1,8 +1,8 @@
 <script>
 import { ref } from "vue";
 import LiteYouTubeEmbed from "vue-lite-youtube-embed";
-import "vue3-carousel/dist/carousel.css";
 import { Carousel, Slide, Pagination } from "vue3-carousel";
+import SlidePreview from "../components/Slide/InfoSlide.vue";
 
 export default {
   name: "ChildrenPage",
@@ -12,7 +12,7 @@ export default {
       default: "",
     },
   },
-  components: { Carousel, Slide, Pagination, LiteYouTubeEmbed },
+  components: { Carousel, Slide, Pagination, LiteYouTubeEmbed, SlidePreview },
   data() {
     return {
       dataCard: [
@@ -51,6 +51,21 @@ export default {
         "https://cdn.imweb.me/thumbnail/20240704/eb47e80ad5a19.png",
         "https://cdn.imweb.me/thumbnail/20240704/2bbd058dbae16.png",
       ],
+      dataInfo: [
+        "https://cdn.imweb.me/thumbnail/20240704/043c0245153bc.jpg",
+        "https://cdn.imweb.me/thumbnail/20240704/f542a1616fa76.jpg",
+        "https://cdn.imweb.me/thumbnail/20240704/e57e0f9abf990.jpg",
+        "https://cdn.imweb.me/thumbnail/20240620/baabcb5258f52.png",
+        "https://cdn.imweb.me/thumbnail/20240620/677c89fc916c5.png",
+      ],
+      dataCompanies: [
+        "https://cdn.imweb.me/thumbnail/20240708/2503bf30221ba.png",
+        "https://cdn.imweb.me/thumbnail/20240708/f7cb256099065.png",
+        "https://cdn.imweb.me/thumbnail/20240708/1c8c021bdb8ef.png",
+        "https://cdn.imweb.me/thumbnail/20240708/a0a0a068a7087.png",
+        "https://cdn.imweb.me/thumbnail/20240708/2fb0ea67e93e5.png",
+        "https://cdn.imweb.me/thumbnail/20240708/b669ea4371afa.png",
+      ],
       settings: {
         autoplay: 1500,
         transition: 300,
@@ -58,21 +73,17 @@ export default {
         pauseAutoplayOnHover: true,
       },
       breakpoints: {
-        640: {
+        320: {
           itemsToShow: 1,
-          spaceBetween: 0,
         },
         768: {
           itemsToShow: 2,
-          spaceBetween: 0,
         },
         1024: {
           itemsToShow: 3,
-          spaceBetween: 40,
         },
         1900: {
           itemsToShow: 5,
-          spaceBetween: 40,
         },
       },
     };
@@ -101,7 +112,7 @@ iframe.value?.playVideo();
       <div class="mx-auto xl:max-w-[1024px] py-[18px]">
         <div class="w-full h-[80px] lg:h-[500px]"></div>
         <div
-          class="w-full px-4 lg:h-[125px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
+          class="w-full px-[15%] lg:h-[125px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
         >
           <div
             class="card-department"
@@ -146,11 +157,11 @@ iframe.value?.playVideo();
       <div class="mt-[60px]">
         <carousel v-bind="settings" :breakpoints="breakpoints">
           <slide v-for="(slide, index) in dataSlide" :key="index"
-            ><div class="w-[350px] h-auto">
+            ><div class="w-[350px] h-auto mx-1">
               <img
                 :src="slide"
                 alt="slide"
-                class="w-full min-h-[343px] object-cover"
+                class="w-full h-[368px] md:min-h-[343px] object-cover"
               /></div
           ></slide>
         </carousel>
@@ -162,9 +173,9 @@ iframe.value?.playVideo();
         학과별주요 <strong>커리큘럼</strong>
       </p>
       <div class="mx-auto xl:max-w-[1200px] py-[18px] px-4 mb-[100px]">
-        <div class="grid grid-cols-4 gap-2">
+        <div class="grid grid-cols-2 md:grid-cols-4 md:gap-2">
           <div
-            class="w-full hover:bg-['#080036'] text-center py-4 rounded-md text-white"
+            class="w-full hover:bg-['#080036'] text-center py-2 md:py-4 md:rounded-md text-white"
             v-for="(item, index) in [
               '#36A7D0',
               '#295E7E',
@@ -221,7 +232,7 @@ iframe.value?.playVideo();
       <p class="text-center text-[28px]">소방안전관 <strong>리학과</strong></p>
       <div class="mx-auto xl:max-w-[1200px] py-[18px]">
         <div
-          class="grid px-4 xl:px-0 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"
+          class="grid px-4 xl:px-0 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
         >
           <div
             class=""
@@ -242,6 +253,28 @@ iframe.value?.playVideo();
     <section class="py-[100px]">
       <p class="text-center text-[28px]">취업 <strong>연계 기업</strong></p>
       <div class="w-full h-[2px] bg-black my-[30px]"></div>
+      <SlidePreview
+        :data-slide="dataCompanies"
+        :class-name="'w-full h-auto mr-[8px]'"
+        :config="{
+          320: {
+            itemsToShow: 3,
+            itemsToScroll: 2,
+          },
+          768: {
+            itemsToShow: 5,
+            itemsToScroll: 3,
+          },
+          1024: {
+            itemsToShow: 7,
+            itemsToScroll: 4,
+          },
+          1900: {
+            itemsToShow: 13,
+            itemsToScroll: 6,
+          },
+        }"
+      ></SlidePreview>
     </section>
 
     <section class="bg-[#F2F2F2] pt-[60px]">
@@ -368,6 +401,10 @@ iframe.value?.playVideo();
           </div>
         </div>
       </div>
+      <SlidePreview
+        :data-slide="dataInfo"
+        :class-name="'w-full h-[149px]'"
+      ></SlidePreview>
     </section>
   </div>
 </template>

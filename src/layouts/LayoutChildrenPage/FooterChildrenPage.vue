@@ -25,8 +25,8 @@ export default {
 <template>
   <div class="w-full h-auto bg-white">
     <div class="mx-auto xl:max-w-[1200px] py-[30px] text-[#474242] px-4">
-      <div class="w-full flex justify-between">
-        <div class="text-[13px] leading-1">
+      <div class="w-full md:flex justify-between">
+        <div class="text-[13px] leading-1 hidden md:block">
           <p>
             <router-link
               v-for="(item, index) in dataFooter"
@@ -62,11 +62,11 @@ export default {
           </router-link>
         </div>
       </div>
-      <div class="mt-[50px]">
-        <strong class="text-[18px] text-[#001D33]">
+      <div class="mt-[20px] md:mt-[50px]">
+        <strong class="text-[14px] md:text-[18px] text-[#001D33]">
           경민대학교 대표 전화 031-828-7700
           <span class="mr-[20px]"></span> 입시
-          <span class="mr-[8px]"></span> 031-828-7722
+          <span class="md:mr-[8px]"></span>031-828-7722
         </strong>
         <p class="text-[14px] mt-[4px]">(11618)경기도 의정부시 서부로 545</p>
       </div>

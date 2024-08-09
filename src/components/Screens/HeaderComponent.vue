@@ -1,6 +1,9 @@
 <script>
+import "vue3-carousel/dist/carousel.css";
+import { Carousel, Slide } from "vue3-carousel";
 export default {
   name: "HeaderComponent",
+  components: { Carousel, Slide },
   data() {
     return {
       dataMenu: [
@@ -56,6 +59,22 @@ export default {
                 class="w-full h-full object-cover"
               /></div
           ></router-link>
+        </div>
+        <div class="flex justify-center items-center lg:hidden">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-4 text-white"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+            />
+          </svg>
         </div>
         <nav class="mt-4 text-[16px] hidden lg:block">
           <ul class="flex space-x-4">
@@ -119,31 +138,46 @@ export default {
         </div>
       </div>
 
-      <div
-        class="w-full border-t border-t-white border-b border-b-white mt-[10px] lg:hidden"
-      >
-        <nav
-          class="mt-4 px-[40px] text-[14px] min-w-[1000px] max-w-2500px] overflow-x-auto"
+      <div class="w-full border-t border-t-white mt-[10px] lg:hidden py-4">
+        <carousel
+          :items-to-show="4"
+          :wrap-around="true"
+          :pause-autoplay-on-hover="true"
+          :items-to-scroll="2"
         >
-          <ul class="flex space-x-6">
-            <li
-              v-for="(item, index) in dataMenu"
-              :key="index"
-              class="text-white cursor-pointer px-[4px] py-1 hover:text-[#ccc]"
-            >
-              <router-link :to="`${item.value}`" class="cursor-pointer"
-                >{{ item.title }}
-              </router-link>
-            </li>
-          </ul>
-        </nav>
+          <slide v-for="(item, index) in dataMenu" :key="index"
+            ><router-link
+              :to="`${item.value}`"
+              class="text-white cursor-pointer px-[4px]"
+              >{{ item.title }}
+            </router-link></slide
+          >
+        </carousel>
       </div>
 
-      <div
-        class="absolute top-0 left-0 w-full h-[100vh] bg-black bg-opacity-35"
+      <!-- <div
+        class="fixed w-[320px] inset-0 top-0 left-0 z-[9999] lg:hidden bg-black bg-opacity-35"
       >
-        <div class="w-[75%] h-[100vh] bg-white"></div>
-      </div>
+        <div class="w-[75%] h-full absolute top-0 left-0 bg-white px-[20px]">
+          <div class="w-full flex justify-between items-center">
+            <p>로그인이 필요합니다.</p>
+            <p>로그인</p>
+          </div>
+          <nav class="mt-4 text-[14px]">
+            <ul class="space-y-4">
+              <li
+                v-for="(item, index) in dataMenu"
+                :key="index"
+                class="text-black cursor-pointer px-[4px] py-1 hover:text-[#ccc]"
+              >
+                <router-link :to="`${item.value}`" class="cursor-pointer"
+                  >{{ item.title }}
+                </router-link>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div> -->
     </div>
   </div>
 </template>
