@@ -6,7 +6,6 @@
       @mouseup="stopDrag"
       @mouseleave="stopDrag"
       @mousemove="drag"
-      @click="toRouter()"
     >
       <info-card-body
         v-for="item in listInfo"
@@ -50,27 +49,49 @@ export default {
       ],
       isDragging: false,
       startX: 0,
+      startY: 0,
       scrollLeft: 0,
+      dragThreshold: 0,
+      clickTimeout: null
     };
   },
   methods: {
-    toRouter() {
-      this.$router.push('')
-    },
     startDrag(e) {
       this.isDragging = true;
+      this.isClick = true;
       this.startX = e.pageX - e.currentTarget.offsetLeft;
+      this.startY = e.pageY - e.currentTarget.offsetTop;
       this.scrollLeft = e.currentTarget.scrollLeft;
     },
-    stopDrag() {
-      this.isDragging = false;
+    stopDrag(e) {
+      if(this.isDragging) {
+        this.isDragging = false;
+        e.preventDefault()
+        return
+      }
+      if(this.isClick) {
+        this.handleToRouter()
+      } 
     },
     drag(e) {
       if (!this.isDragging) return;
       e.preventDefault();
       const x = e.pageX - e.currentTarget.offsetLeft;
-      const walk = (x - this.startX) * 2
-      e.currentTarget.scrollLeft = this.scrollLeft - walk;
+      this.isDragging = true;
+      const walk = (x - this.startX) * 2;
+      if (Math.abs(walk) > this.dragThreshold) {
+        this.isDragging = true;
+        this.isClick = false
+        e.currentTarget.scrollLeft = this.scrollLeft - walk;
+      }
+    },
+    handleToRouter() {
+      this.toRouter()
+    },
+    toRouter() {
+      if(!this.isDragging) {
+        this.$router.push('')
+      }
     },
   },
 };
@@ -84,12 +105,15 @@ export default {
   white-space: nowrap;
 }
 .scroll-container:active {
-  cursor: grabbing;
+  cursor: grab;
 }
 .scroll-container::-webkit-scrollbar {
   display: none;
 }
 .scroll-container > * {
   flex: 0 0 auto;
+}
+.dragging {
+  pointer-events: none;
 }
 </style>

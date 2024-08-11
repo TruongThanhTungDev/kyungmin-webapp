@@ -1,5 +1,5 @@
 <template>
-  <div class="img-body-card cursor-pointer">
+  <div class="img-body-card">
     <img class="img-light" :src="light" alt="">
     <img class="img-dark" :src="dark" alt="">
   </div>
@@ -16,6 +16,10 @@ export default {
     dark: {
       type: String,
       default: ''
+    },
+    isDragging: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {
@@ -29,11 +33,11 @@ export default {
 }
 .img-body-card:hover .img-light {
   display: none;
-  cursor: pointer;
+  cursor: grab;
 }
 .img-body-card:hover .img-dark {
   display: inline;
-  cursor: pointer;
+  cursor: grab;
 }
 .img-body-card img {
   width: 187px;
@@ -54,5 +58,9 @@ export default {
   height: 100%;
   background-color: rgba(255, 255, 255, 0);
   z-index: 1;
+  user-select: none;
+}
+.img-body-card > .dragging {
+  pointer-events: none; /* Disable click events while dragging */
 }
 </style>

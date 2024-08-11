@@ -17,4 +17,7 @@ export default {
   margin: 0 auto;
   padding: 40px 0
 }
+#app {
+  background-color: rgba(235, 235, 235, 0.8)!important;
+}
 </style>
