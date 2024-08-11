@@ -65,7 +65,7 @@ export default {
       if (!this.isDragging) return;
       e.preventDefault();
       const x = e.pageX - e.currentTarget.offsetLeft;
-      const walk = (x - this.startX) * 2; // Adjust scroll speed by multiplying
+      const walk = (x - this.startX) * 2
       e.currentTarget.scrollLeft = this.scrollLeft - walk;
     },
   },
