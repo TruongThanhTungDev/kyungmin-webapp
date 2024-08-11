@@ -24,8 +24,8 @@
 </template>
 
 <script>
-import CardHeader from '@/components/layout/CardHeader.vue';
-import SearchHeader from '@/components/layout/SearchHeader.vue';
+import CardHeader from '@/components/common/layout/CardHeader.vue';
+import SearchHeader from '@/components/common/layout/SearchHeader.vue';
 export default {
   components: { CardHeader, SearchHeader },
   name: "HeaderHomePage",
