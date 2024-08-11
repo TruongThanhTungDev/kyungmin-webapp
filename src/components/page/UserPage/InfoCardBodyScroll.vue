@@ -6,6 +6,7 @@
       @mouseup="stopDrag"
       @mouseleave="stopDrag"
       @mousemove="drag"
+      @click="toRouter()"
     >
       <info-card-body
         v-for="item in listInfo"
@@ -53,6 +54,9 @@ export default {
     };
   },
   methods: {
+    toRouter() {
+      this.$router.push('')
+    },
     startDrag(e) {
       this.isDragging = true;
       this.startX = e.pageX - e.currentTarget.offsetLeft;
