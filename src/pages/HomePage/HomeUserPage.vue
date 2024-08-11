@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import InfoCardBodyScroll from '@/components/common/page/UserPage/InfoCardBodyScroll.vue'
+import InfoCardBodyScroll from '@/components/page/UserPage/InfoCardBodyScroll.vue'
 export default {
   components: { InfoCardBodyScroll },
   name: 'PageNo1'
