@@ -66,6 +66,68 @@ export default {
         "https://cdn.imweb.me/thumbnail/20240708/2fb0ea67e93e5.png",
         "https://cdn.imweb.me/thumbnail/20240708/b669ea4371afa.png",
       ],
+      dataSubject: [
+        {
+          id: 1,
+          list: [
+            "소방시뮬레이션",
+            "소방학개론",
+            "소방안전관리",
+            "소방시설설계",
+            "소방용수",
+            "소방훈련",
+            "소방차량",
+            "소방화학",
+            "건축방재",
+            "소방법규",
+          ],
+        },
+        {
+          id: 2,
+          list: [
+            "위험물안전관리",
+            "소방시설설계",
+            "소방용수",
+            "소방훈련",
+            "소방차량",
+            "소방화학",
+            "건축방재",
+            "소방법규",
+            "소방시뮬레이션",
+            "소방학개론",
+          ],
+        },
+        {
+          id: 3,
+          list: [
+            "위험물안전관리",
+            "소방감정",
+            "소방시뮬레이션",
+            "소방학개론",
+            "소방안전관리",
+            "소방시설설계",
+            "소방용수",
+            "소방훈련",
+            "소방차량",
+            "소방화학",
+          ],
+        },
+        {
+          id: 4,
+          list: [
+            "소방안전관리",
+            "소방화학",
+            "건축방재",
+            "소방시설설계",
+            "소방시뮬레이션",
+            "소방학개론",
+            "소방용수",
+            "소방훈련",
+            "소방차량",
+            "소방법규",
+          ],
+        },
+      ],
       settings: {
         autoplay: 1500,
         transition: 300,
@@ -86,7 +148,41 @@ export default {
           itemsToShow: 5,
         },
       },
+      activeSubject: 0,
+      dataShowSubject: [
+        "소방시뮬레이션",
+        "소방학개론",
+        "소방안전관리",
+        "소방시설설계",
+        "소방용수",
+        "소방훈련",
+        "소방차량",
+        "소방화학",
+        "건축방재",
+        "소방법규",
+      ],
+      dataCetifications: [
+        "소방설비기계기술자",
+        "소방설비기계기술자",
+        "소방설비기계기술자",
+        "소방설비기계기술자",
+        "소방설비기계기술자",
+        "소방설비기계기술자",
+        "소방설비기계기술자",
+        "소방설비기계기술자",
+        "소방설비기계기술자",
+        "소방설비기계기술자",
+        "소방설비기계기술자",
+        "소방설비기계기술자",
+      ],
     };
+  },
+  methods: {
+    handleChangeShow(id) {
+      this.dataShowSubject = id
+        ? this.dataSubject[id].list
+        : this.dataSubject[0].list;
+    },
   },
 };
 
@@ -100,7 +196,7 @@ iframe.value?.playVideo();
 <template>
   <div>
     <div
-      class="w-full h-[750px]"
+      class="w-full h-[850px] lg:h-[750px]"
       style="
         background-image: url(https://cdn.imweb.me/thumbnail/20240619/ff8b7b7f4298a.png);
         background-color: #000000;
@@ -110,12 +206,39 @@ iframe.value?.playVideo();
       "
     >
       <div class="mx-auto xl:max-w-[1024px] py-[18px]">
-        <div class="w-full h-[80px] lg:h-[500px]"></div>
+        <div class="w-full h-[250px] lg:h-[500px] pt-[80px] lg:pt-[180px]">
+          <div class="w-full lg:w-[580px] text-white px-4">
+            <div class="lg:flex space-x-2">
+              <div class="w-[5px] h-[32px] bg-white hidden lg:block"></div>
+              <p
+                class="text-[32px] lg:text-[52px] font-bold text-center lg:text-left leading-3"
+              >
+                소방안전관리본부
+              </p>
+              <div class="flex justify-center">
+                <div
+                  class="w-[64px] h-[2px] bg-white block lg:hidden mb-[16px]"
+                ></div>
+              </div>
+            </div>
+
+            <p
+              class="text-[18px] lg:text-[28px] mt-[20px] lg:mt-[40px] leading-[16px] text-center lg:text-left font-bold"
+            >
+              전국 소방관 양성 1위 대학에
+            </p>
+            <p
+              class="text-[18px] lg:text-[28px] leading-[0px] text-center lg:text-left"
+            >
+              졸업생의 600명 이상이 취업에 성공했는데요!
+            </p>
+          </div>
+        </div>
         <div
           class="w-full px-[15%] lg:px-0 lg:h-[125px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
         >
           <div
-            class="card-department"
+            class="card-department cursor-default"
             v-for="(card, index) in dataCard"
             :key="index"
           >
@@ -168,14 +291,14 @@ iframe.value?.playVideo();
       </div>
     </section>
 
-    <section class="py-[100px]">
+    <section class="py-[100px] bg-white">
       <p class="text-center text-[28px]">
         학과별주요 <strong>커리큘럼</strong>
       </p>
-      <div class="mx-auto xl:max-w-[1200px] py-[18px] px-4 mb-[100px]">
+      <div class="mx-auto xl:max-w-[1200px] py-[18px] px-4 mb-[155px]">
         <div class="grid grid-cols-2 md:grid-cols-4 md:gap-2">
           <div
-            class="w-full hover:bg-['#080036'] text-center py-2 md:py-4 md:rounded-md text-white"
+            class="w-full hover:bg-['#080036'] text-center py-2 md:py-4 md:rounded-md text-white cursor-pointer"
             v-for="(item, index) in [
               '#36A7D0',
               '#295E7E',
@@ -184,22 +307,37 @@ iframe.value?.playVideo();
             ]"
             :key="index"
             :style="{ backgroundColor: `${item}` }"
+            @click="handleChangeShow(index)"
           >
             {{ index + 1 }}학년
           </div>
         </div>
-        <div class="w-full bg-[#162A41] h-[3px] my-[30px]"></div>
-        <div class="w-full bg-[#ccc] h-[1px] my-[30px]"></div>
-        <div class="w-full bg-[#ccc] h-[1px] my-[30px]"></div>
+        <div class="w-full bg-[#162A41] h-[3px] mt-[30px] mb-[10px]"></div>
+        <div class="grid grid-cols-2 lg:grid-cols-5">
+          <div
+            v-for="(item, index) in dataShowSubject"
+            :key="index"
+            class="w-full flex justify-start items-center border-b border-b-[#ccc] pt-[20px] pl-[10px] lg:pl-[20px]"
+          >
+            <p class="font-bold text-[20px]">・{{ item }}</p>
+          </div>
+        </div>
       </div>
 
       <p class="text-center text-[28px]">
         학과별주요 <strong>커리큘럼</strong>
       </p>
       <div class="mx-auto xl:max-w-[1200px] py-[18px] px-4">
-        <div class="w-full bg-[#162A41] h-[3px] my-[30px]"></div>
-        <div class="w-full bg-[#ccc] h-[1px] my-[30px]"></div>
-        <div class="w-full bg-[#ccc] h-[1px] my-[30px]"></div>
+        <div class="w-full bg-[#162A41] h-[3px] mt-[20px] mb-[10px]"></div>
+        <div class="grid grid-cols-2 lg:grid-cols-4">
+          <div
+            v-for="(item, index) in dataCetifications"
+            :key="index"
+            class="w-full flex justify-start items-center border-b border-b-[#ccc] pt-[20px] pl-[10px] lg:pl-[20px]"
+          >
+            <p class="font-bold text-[20px]">| {{ item }}</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -250,7 +388,7 @@ iframe.value?.playVideo();
       </div>
     </section>
 
-    <section class="py-[100px]">
+    <section class="py-[100px] bg-white">
       <p class="text-center text-[28px]">취업 <strong>연계 기업</strong></p>
       <div class="w-full h-[2px] bg-black my-[30px]"></div>
       <SlidePreview
@@ -514,6 +652,16 @@ iframe.value?.playVideo();
   margin-top: 35px;
   transform: all 0.3s ease;
   animation: amimate 0.1s ease-in;
+}
+
+@media screen and (max-width: 768px) {
+  .card-department {
+    min-height: 80px;
+  }
+
+  .card-icon {
+    display: none !important;
+  }
 }
 
 .card-department:hover .card-icon {
