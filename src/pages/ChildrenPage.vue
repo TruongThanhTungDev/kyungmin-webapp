@@ -112,7 +112,7 @@ iframe.value?.playVideo();
       <div class="mx-auto xl:max-w-[1024px] py-[18px]">
         <div class="w-full h-[80px] lg:h-[500px]"></div>
         <div
-          class="w-full px-[15%] lg:h-[125px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
+          class="w-full px-[15%] lg:px-0 lg:h-[125px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
         >
           <div
             class="card-department"
