@@ -4,9 +4,9 @@
       class="w-full flex justify-between items-center border-b-primary border-b-2 py-4 mb-4"
     >
       <div class="text-[26px] text-primary font-bold">공지사항</div>
-      <div class="border-2 border-primary rounded-full p-1 text-primary hover:text-[#dddddd] hover:border-[#dddddd]">
+      <a class="border-2 border-primary rounded-full p-1 text-primary hover:text-[#dddddd] hover:border-[#dddddd]" href="https://check12.imweb.me/121">
         <i class="fa-solid fa-plus "></i>
-      </div>
+      </a>
     </div>
     <div class="flex flex-col">
       <router-link v-for="(item,index) in listNoticePreview" :key="index" class="text-[#337AB7] hover:!text-[#23527c] py-5 grid grid-cols-3" :to="item.path">
