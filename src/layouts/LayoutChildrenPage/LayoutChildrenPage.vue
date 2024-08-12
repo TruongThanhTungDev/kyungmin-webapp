@@ -1,23 +1,18 @@
 <template>
-  <div>
-    <div>
-      <header-children-page></header-children-page>
-      <main>
-        <router-view></router-view>
-      </main>
-      <footer-children-page></footer-children-page>
-    </div>
-  </div>
+  <header-component></header-component>
+  <main>
+    <router-view></router-view>
+  </main>
+  <footer-children-page></footer-children-page>
 </template>
 
 <script>
-import FooterChildrenPage from './FooterChildrenPage.vue';
-import HeaderChildrenPage from './HeaderChildrenPage.vue';
+import FooterChildrenPage from "./FooterChildrenPage.vue";
+import HeaderComponent from "../../components/Screens/HeaderComponent.vue";
 export default {
-  components: { HeaderChildrenPage, FooterChildrenPage },
+  components: { HeaderComponent, FooterChildrenPage },
   name: "LayoutChildrenPage",
 };
 </script>
 
-<style>
-</style>
+<style></style>
