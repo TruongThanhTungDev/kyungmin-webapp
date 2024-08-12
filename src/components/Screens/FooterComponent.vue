@@ -7,18 +7,18 @@ export default {
   data() {
     return {
       dataFooter: [
-        { title: "대학입시", value: "/1" },
-        { title: "입찰공고", value: "/2" },
-        { title: "예결산공고", value: "/3" },
-        { title: "성희롱 사이버신고센터", value: "/4" },
-        { title: "발전기금", value: "/5" },
-        { title: "개인정보처리방침", value: "/6" },
-        { title: "이메일무단수집거부", value: "/7" },
+        { title: "대학입시", value: "1" },
+        { title: "입찰공고", value: "2" },
+        { title: "예결산공고", value: "3" },
+        { title: "성희롱 사이버신고센터", value: "4" },
+        { title: "발전기금", value: "5" },
+        { title: "개인정보처리방침", value: "6" },
+        { title: "이메일무단수집거부", value: "7" },
       ],
       subFooter: [
-        { title: "양상정보기기운영관리방침", value: "/8" },
-        { title: "개인정보제공내역", value: "/9" },
-        { title: "정보공개", value: "/10" },
+        { title: "양상정보기기운영관리방침", value: "8" },
+        { title: "개인정보제공내역", value: "9" },
+        { title: "정보공개", value: "10" },
       ],
     };
   },
@@ -34,7 +34,7 @@ export default {
             <router-link
               v-for="(item, index) in dataFooter"
               :key="index"
-              :to="`${item.value}`"
+              :to="`/department/${item.value}`"
               class="cursor-pointer hover:text-[#001D33]"
               >{{ item.title }} ・
             </router-link>
@@ -43,7 +43,7 @@ export default {
             <router-link
               v-for="(item, index) in subFooter"
               :key="index"
-              :to="`${item.value}`"
+              :to="`/department/${item.value}`"
               class="cursor-pointer hover:text-[#001D33]"
               >{{ item.title }}<span v-if="index !== 2"> ・</span>
             </router-link>

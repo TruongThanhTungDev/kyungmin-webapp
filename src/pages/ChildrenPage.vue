@@ -217,7 +217,7 @@ iframe.value?.playVideo();
         <div class="w-full h-[250px] lg:h-[500px] pt-[80px] lg:pt-[180px]">
           <div class="w-full lg:w-[580px] text-white px-4">
             <div class="lg:flex space-x-2">
-              <div class="w-[5px] h-[32px] bg-white hidden lg:block"></div>
+              <div class="w-[5px] h-[42px] -translate-y-[14px] bg-white hidden lg:block"></div>
               <p
                 class="text-[32px] lg:text-[52px] font-bold text-center lg:text-left leading-3"
               >

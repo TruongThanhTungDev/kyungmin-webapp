@@ -12,14 +12,14 @@ export default {
   data() {
     return {
       dataMenu: [
-        { title: "수시모집", value: "/14" },
-        { title: "정시모집", value: "/15" },
-        { title: "편입학", value: "/16" },
-        { title: "산업체", value: "/17" },
-        { title: "외국인", value: "/18" },
-        { title: "학사학위", value: "/19" },
-        { title: "전문기술석사", value: "/20" },
-        { title: "학과안내", value: "/21" },
+        { title: "수시모집", value: "14" },
+        { title: "정시모집", value: "15" },
+        { title: "편입학", value: "16" },
+        { title: "산업체", value: "17" },
+        { title: "외국인", value: "18" },
+        { title: "학사학위", value: "19" },
+        { title: "전문기술석사", value: "20" },
+        { title: "학과안내", value: "21" },
       ],
       toggleMenuMobile: false,
       toggleSearch: false,
@@ -81,7 +81,7 @@ export default {
               :key="index"
               class="text-white cursor-pointer px-[4px] py-1 hover:text-[#ccc]"
             >
-              <router-link :to="`${item.value}`" class="cursor-pointer"
+              <router-link :to="`/menu/${item.value}`" class="cursor-pointer"
                 >{{ item.title }}
               </router-link>
             </li>
