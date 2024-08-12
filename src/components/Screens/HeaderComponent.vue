@@ -6,6 +6,9 @@ import SearchHeader from "@/components/common/layout/SearchHeader.vue";
 export default {
   name: "HeaderComponent",
   components: { Carousel, Slide, SearchHeader },
+  props: {
+    className: { type: String },
+  },
   data() {
     return {
       dataMenu: [
@@ -34,7 +37,7 @@ export default {
 </script>
 
 <template>
-  <div class="w-full bg-[#00264B] sticky top-0 z-[999]">
+  <div class="w-full bg-[#00264B] sticky top-0 z-[999]" :class="className">
     <div
       class="mx-auto xl:max-w-[1200px] flex justify-between px-4 py-[8px] lg:py-[18px]"
     >

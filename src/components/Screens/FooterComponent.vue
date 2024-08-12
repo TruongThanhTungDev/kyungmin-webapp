@@ -1,6 +1,9 @@
 <script>
 export default {
-  name: "FooterChildrenPage",
+  name: "FooterComponent",
+  props: {
+    className: { type: String },
+  },
   data() {
     return {
       dataFooter: [
@@ -23,7 +26,7 @@ export default {
 </script>
 
 <template>
-  <div class="w-full h-auto bg-white">
+  <div class="w-full h-auto bg-white" :class="className">
     <div class="mx-auto xl:max-w-[1200px] py-[30px] text-[#474242] px-4">
       <div class="w-full md:flex justify-between">
         <div class="text-[13px] leading-1 hidden md:block">

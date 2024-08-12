@@ -3,14 +3,14 @@
   <main>
     <router-view></router-view>
   </main>
-  <footer-children-page></footer-children-page>
+  <footer-component></footer-component>
 </template>
 
 <script>
-import FooterChildrenPage from "./FooterChildrenPage.vue";
-import HeaderComponent from "../../components/Screens/HeaderComponent.vue";
+import HeaderComponent from "@/components/Screens/HeaderComponent.vue";
+import FooterComponent from "@/components/Screens/FooterComponent.vue";
 export default {
-  components: { HeaderComponent, FooterChildrenPage },
+  components: { HeaderComponent, FooterComponent },
   name: "LayoutChildrenPage",
 };
 </script>
