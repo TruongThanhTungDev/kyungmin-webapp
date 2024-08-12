@@ -37,6 +37,15 @@ async function PUT(url, body) {
   return result
 }
 
+async function DELETE(url, params) {
+  let result = await instance
+    .delete(url, { params: { ...params } })
+    .then((response) => {
+      return response;
+    });
+  return result;
+}
+
 instance.interceptors.request.use(
   (config) => {
     let token = localStorage.getItem('token')
@@ -50,4 +59,4 @@ instance.interceptors.request.use(
   }
 )
 
-export {GET, PUT, POST}
+export {GET, PUT, POST, DELETE}
