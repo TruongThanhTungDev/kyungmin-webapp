@@ -3,6 +3,7 @@ import { ref } from "vue";
 import LiteYouTubeEmbed from "vue-lite-youtube-embed";
 import { Carousel, Slide, Pagination } from "vue3-carousel";
 import SlidePreview from "../components/Slide/InfoSlide.vue";
+import BoxConversation from "@/components/Box/BoxConversation.vue";
 
 export default {
   name: "ChildrenPage",
@@ -12,7 +13,14 @@ export default {
       default: "",
     },
   },
-  components: { Carousel, Slide, Pagination, LiteYouTubeEmbed, SlidePreview },
+  components: {
+    Carousel,
+    Slide,
+    Pagination,
+    LiteYouTubeEmbed,
+    SlidePreview,
+    BoxConversation,
+  },
   data() {
     return {
       dataCard: [
@@ -468,10 +476,16 @@ iframe.value?.playVideo();
           </div>
         </div>
       </div>
-      <p class="text-center text-[28px] my-[50px]">
+      <p class="text-center text-[28px] mt-[102px] mb-[50px]">
         <strong>의사소통하다</strong>
       </p>
       <div class="w-full h-[2px] bg-black"></div>
+    </section>
+
+    <section class="bg-white">
+      <div class="mx-auto w-full xl:max-w-[1200px] py-[63px]">
+        <box-conversation></box-conversation>
+      </div>
     </section>
 
     <section class="bg-[#00274C] py-[54px]">
