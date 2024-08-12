@@ -39,7 +39,7 @@ export default {
 
 <template>
   <div class="w-full bg-[#00264B] sticky top-0 z-[999]">
-    <div class="mx-auto xl:max-w-[1200px] flex justify-between px-4 py-[18px]">
+    <div class="mx-auto xl:max-w-[1200px] flex justify-between px-4 py-[8px]">
       <div
         class="text-white flex justify-center items-center lg:hidden"
         @click="handleToggleMenu"
@@ -158,7 +158,7 @@ export default {
     </div>
   </div>
   <div
-    class="w-full border-t-2 border-t-white border-b-2 border-b-white lg:hidden py-4 bg-[#00264B]"
+    class="w-full border-t border-t-white border-b border-b-white lg:hidden py-[13px] bg-[#00264B]"
   >
     <carousel
       :items-to-show="4"
@@ -169,7 +169,7 @@ export default {
       <slide v-for="(item, index) in dataMenu" :key="index"
         ><router-link
           :to="`${item.value}`"
-          class="text-white cursor-pointer px-[0px]"
+          class="text-white text-[13px] cursor-pointer"
           >{{ item.title }}
         </router-link></slide
       >
@@ -177,7 +177,7 @@ export default {
   </div>
 
   <div
-    class="fixed w-full inset-0 top-0 left-0 z-[9999] lg:hidden bg-black bg-opacity-35"
+    class="fixed w-full inset-0 top-0 left-0 z-[9999] lg:hidden bg-black bg-opacity-25"
     :class="{ block: toggleSearch, hidden: !toggleSearch }"
   >
     <div class="w-full h-full relative px-[20px]">
