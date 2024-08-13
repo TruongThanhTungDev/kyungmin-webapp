@@ -49,7 +49,7 @@ export default {
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
         <div class="col-span-1 lg:col-span-3 text-white">
           <div
-            class="bg-[#01274E] flex justify-start items-center px-[20px] py-[20px] space-x-2 mb-1"
+            class="bg-[#01274E] flex justify-start items-center px-[20px] py-[20px] space-x-2 mb-[1px]"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -115,7 +115,6 @@ export default {
         </div>
       </div>
     </div>
-    <hr class="w-full h-[3px] bg-[#00274c]" />
   </div>
 </template>
 

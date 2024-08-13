@@ -3,6 +3,7 @@
   <main>
     <router-view></router-view>
   </main>
+  <hr class="w-full h-[3px] bg-[#00274c]" />
   <footer-component :class-name="'!bg-[#DBDADE]'"></footer-component>
 </template>
 

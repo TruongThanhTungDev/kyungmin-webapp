@@ -39,6 +39,19 @@ const routes = [
       },
     ],
   },
+  {
+    path: "/notice/:notice",
+    name: "NoticePage",
+    component: () => import("@/layouts/LayoutMenuPage/LayoutMenuPage.vue"),
+    children: [
+      {
+        path: "",
+        name: "Detail Notice",
+        component: () => import("@/pages/NoticePage.vue"),
+        props: true,
+      },
+    ],
+  },
 ];
 const router = createRouter({
   history: createWebHistory(),

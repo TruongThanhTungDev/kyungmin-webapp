@@ -17,7 +17,7 @@
         :key="index"
         class="text-white text-[13px] flex hover:text-[#ccc]"
       >
-        <router-link :to="`${item.value}`" class="cursor-pointer"
+        <router-link :to="`/notice/${item.value}`" class="cursor-pointer"
           >{{ item.title }}
         </router-link>
         <div class="flex justify-between items-center">
@@ -39,9 +39,9 @@ export default {
   data() {
     return {
       subMenu: [
-        { title: "공지사항", value: "/11" },
-        { title: "나의 지원", value: "/12" },
-        { title: "자료실", value: "/13" },
+        { title: "공지사항", value: "new" },
+        { title: "나의 지원", value: "help" },
+        { title: "자료실", value: "add" },
       ],
     };
   },
