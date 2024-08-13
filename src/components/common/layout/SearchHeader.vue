@@ -48,4 +48,28 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.search-input {
+  border: 0;
+  border-radius: 0;
+  border-bottom: 1px solid #ffffff;
+  background: none;
+  padding-left: 0;
+  width: 100%;
+  height: 28px;
+  line-height: 28px;
+  color: #ffffff;
+  font-size: 14px;
+  outline: none;
+}
+.search-input::placeholder {
+  color: white;
+}
+.text-transform {
+  transition: color 0.5s ease;
+}
+.text-transform:hover {
+  color: #cfcfcf !important;
+  cursor: pointer;
+}
+</style>
