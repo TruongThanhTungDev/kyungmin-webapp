@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 const routes = [
   {
     path: "",
+    meta: { title: "경민대학교 입시사이트 시안" },
     name: "Kyungmin College Home",
     component: () => import("@/layouts/LayoutHomePage/LayoutHomePage.vue"),
     children: [

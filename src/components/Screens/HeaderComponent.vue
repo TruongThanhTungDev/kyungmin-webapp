@@ -8,6 +8,8 @@ export default {
   components: { Carousel, Slide, SearchHeader },
   props: {
     className: { type: String },
+    isScrolled: { type: Boolean },
+    isFixed: { type: Boolean },
   },
   data() {
     return {
@@ -37,7 +39,15 @@ export default {
 </script>
 
 <template>
-  <div class="w-full bg-[#00264B] sticky top-0 z-[999]" :class="className">
+  <div
+    class="w-full top-0 z-[999]"
+    :class="{
+      'bg-[#00264B]': isScrolled,
+      'bg-[#00264B] lg:bg-transparent': !isScrolled,
+      'fixed top-0 left-0': isFixed,
+      '!sticky ': !isFixed || (isFixed && isScrolled),
+    }"
+  >
     <div
       class="mx-auto xl:max-w-[1200px] flex justify-between px-4 py-[8px] lg:py-[18px]"
     >
@@ -116,6 +126,7 @@ export default {
   </div>
   <div
     class="w-full border-t border-t-white border-b border-b-white lg:hidden py-[13px] bg-[#00264B]"
+    :class="{ 'mt-[64px]': isFixed && !isScrolled }"
   >
     <carousel
       :items-to-show="4"
@@ -125,7 +136,7 @@ export default {
     >
       <slide v-for="(item, index) in dataMenu" :key="index"
         ><router-link
-          :to="`${item.value}`"
+          :to="`/menu/${item.value}`"
           class="text-white text-[13px] cursor-pointer"
           >{{ item.title }}
         </router-link></slide

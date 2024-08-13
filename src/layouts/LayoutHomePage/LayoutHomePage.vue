@@ -16,6 +16,11 @@ import HeaderHomePage from "./HeaderHomePage.vue";
 export default {
   components: { HeaderHomePage, FooterComponent, FooterHomePage },
   name: "LayoutHomePage",
+  computed: {
+    title() {
+      return this.$route.meta.title || "경민대학교 입시사이트 시안";
+    },
+  },
 };
 </script>
 

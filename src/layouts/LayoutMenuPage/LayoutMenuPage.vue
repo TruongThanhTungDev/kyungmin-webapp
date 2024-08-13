@@ -1,5 +1,5 @@
 <template>
-  <header-component></header-component>
+  <header-component :isScrolled="true"></header-component>
   <main>
     <router-view></router-view>
   </main>
