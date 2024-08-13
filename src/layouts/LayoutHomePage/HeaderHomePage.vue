@@ -5,13 +5,15 @@
     :isFixed="true"
   ></header-component>
   <div class="w-full header-background h-[850px]">
-    <div class="w-full h-[570px]"></div>
-    <div class="mx-auto xl:max-w-[1200px]">
-      <card-header
-        v-for="card in listCard"
-        :key="card.name"
-        :name="card.name"
-      />
+    <div class="w-full h-[300px] lg:h-[570px]"></div>
+    <div class="mx-auto xl:max-w-[1200px] px-4">
+      <div class="grid px-[15%] md:px-0 grid-cols-1 md:grid-cols-4 gap-2">
+        <card-header
+          v-for="card in listCard"
+          :key="card.name"
+          :name="card.name"
+        />
+      </div>
     </div>
   </div>
 </template>

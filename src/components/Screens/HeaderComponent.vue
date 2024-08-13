@@ -45,7 +45,7 @@ export default {
       'bg-[#00264B]': isScrolled,
       'bg-[#00264B] lg:bg-transparent': !isScrolled,
       'fixed top-0 left-0': isFixed,
-      '!sticky ': !isFixed || (isFixed && isScrolled),
+      'sticky ': !isFixed,
     }"
   >
     <div
