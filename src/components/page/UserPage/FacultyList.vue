@@ -1,15 +1,30 @@
 <template>
-  <div class="py-20 w-full">
-    <div class="py-4 w-full relative">
-      <div class="flex justify-evenly mx-auto w-1/2">
-        <div v-for="item in listFaculty" :key="item.name" class="flex flex-col gap-6">
-          <div class="font-bold text-primary text-xl mb-4">{{item.name}}</div>
-          <div v-for="depart in item.department" :key="depart.name">
-            <a href="" class="font-bold">{{depart.name}}</a>
+  <div class="py-[80px] w-full relative">
+    <div
+      class="h-[2px] w-full absolute bg-primary top-[18%] lg:top-[120px]"
+    ></div>
+    <div class="h-[2px] w-full absolute bg-primary top-[60%] lg:hidden"></div>
+    <div class="mx-auto w-full xl:max-w-[1200px] px-4">
+      <div class="grid grid-cols-3 gap-6 lg:grid-cols-5">
+        <div
+          v-for="item in listFaculty"
+          :key="item.name"
+          class="flex flex-col gap-6"
+        >
+          <div class="font-bold text-primary text-xl mb-2">
+            {{ item.name }}
+          </div>
+          <div
+            v-for="(depart, index) in item.department"
+            :key="depart.name"
+            class="text-[14px]"
+          >
+            <router-link :to="`/department/${index + 1}`" class="cursor-pointer"
+              >{{ depart.name }}
+            </router-link>
           </div>
         </div>
       </div>
-      <div class="h-[2px] w-full absolute bg-primary top-14"></div>
     </div>
   </div>
 </template>
@@ -143,5 +158,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

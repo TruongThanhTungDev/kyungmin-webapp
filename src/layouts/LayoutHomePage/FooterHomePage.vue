@@ -28,14 +28,16 @@
     </div>
     <div class="bg-primary">
       <div
-        class="grid grid-cols-1 md:grid-cols-2 mx-auto w-full xl:max-w-[1200px] px-2 py-[40px]"
+        class="grid grid-cols-1 md:grid-cols-2 mx-auto w-full xl:max-w-[1200px] py-[50px]"
       >
-        <div
-          class="col-span-1 grid grid-cols-2 md:grid-cols-3 text-white gap-4"
-        >
+        <div class="col-span-1 grid grid-cols-3 text-white md:gap-4">
           <div class="">
-            <div class="font-bold text-lg mb-6">대학소식</div>
-            <div class="flex flex-col gap-4">
+            <div
+              class="font-bold text-[16px] mb-6 border-b pb-[10px] md:border-0 md:pb-0 px-4"
+            >
+              대학소식
+            </div>
+            <div class="flex flex-col gap-4 text-[12px] px-4">
               <div>공지사항</div>
               <div>FAQ</div>
               <div>경민대학교 홈페이지</div>
@@ -43,8 +45,12 @@
             </div>
           </div>
           <div class="">
-            <div class="font-bold text-lg mb-6">모집요강</div>
-            <div class="flex flex-col gap-4">
+            <div
+              class="font-bold text-[16px] mb-6 border-b pb-[10px] md:border-0 md:pb-0 px-4"
+            >
+              모집요강
+            </div>
+            <div class="flex flex-col gap-4 text-[12px] px-4">
               <div>모집요강</div>
               <div>원서접수 바로가기</div>
               <div>경쟁률 현황</div>
@@ -53,8 +59,12 @@
             </div>
           </div>
           <div class="">
-            <div class="font-bold text-lg mb-6">편입학</div>
-            <div class="flex flex-col gap-4">
+            <div
+              class="font-bold text-[16px] mb-6 border-b pb-[10px] md:border-0 md:pb-0 px-4"
+            >
+              편입학
+            </div>
+            <div class="flex flex-col gap-4 text-[12px] px-4">
               <div>편입학</div>
               <div>학사학위 전공심화</div>
               <div>산업체위탁</div>
