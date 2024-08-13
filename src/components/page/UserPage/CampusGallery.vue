@@ -5,11 +5,22 @@
         <strong>Campus Gallery</strong>
       </p>
     </div>
-    <div class="h-[807px] relative">
+    <div class="h-[807px]">
       <div class="background-campus-gallery">
-        <div class="flex h-full w-4/5 my-0 mx-auto justify-between items-center">
-          <img src="@/assets/image/campus.png" width="407" alt="">
-          <gallery-album/>
+        <div class="mx-auto w-full xl:max-w-[1200px] pt-[110px]">
+          <div class="grid grid-cols-1 md:grid-cols-12">
+            <div class="col-span-1 md:col-span-4">
+              <img
+                src="@/assets/image/campus.png"
+                width="407"
+                alt=""
+                class="hidden lg:block"
+              />
+            </div>
+            <div class="col-span-1 px-4 md:col-span-8 md:pl-[120px]">
+              <gallery-album />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -17,7 +28,7 @@
 </template>
 
 <script>
-import GalleryAlbum from '@/components/GalleryAlbum.vue';
+import GalleryAlbum from "@/components/GalleryAlbum.vue";
 export default {
   components: { GalleryAlbum },
   name: "CampusGallery",
@@ -30,8 +41,6 @@ export default {
   background-position: 50% 50%;
   background-size: cover;
   background-repeat: no-repeat;
-  position: absolute;
-  content: '';
   height: 100%;
   width: 100%;
 }

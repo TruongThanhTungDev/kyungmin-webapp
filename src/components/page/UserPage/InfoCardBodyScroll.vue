@@ -1,17 +1,18 @@
 <template>
   <div class="w-full">
     <div
-      class="scroll-container"
+      class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-4"
       @mousedown="startDrag"
       @mouseup="stopDrag"
       @mouseleave="stopDrag"
       @mousemove="drag"
     >
       <info-card-body
-        v-for="item in listInfo"
-        :key="item.key"
-        :light="require(`@/assets/image/img-body-${item.key}-light.png`)"
-        :dark="require(`@/assets/image/img-body-${item.key}-dark.png`)"
+        v-for="(item, index) in listInfo"
+        :key="index"
+        :light="require(`@/assets/image/img-body-${item}-light.png`)"
+        :dark="require(`@/assets/image/img-body-${item}-dark.png`)"
+        :class="{ 'block md:hidden': index === 6 }"
       />
     </div>
   </div>
@@ -24,35 +25,13 @@ export default {
   components: { InfoCardBody },
   data() {
     return {
-      listInfo: [
-        {
-          key: 1,
-        },
-        {
-          key: 2,
-        },
-        {
-          key: 3,
-        },
-        {
-          key: 4,
-        },
-        {
-          key: 5,
-        },
-        {
-          key: 6,
-        },
-        {
-          key: 7,
-        },
-      ],
+      listInfo: [1, 2, 3, 4, 5, 6, 7],
       isDragging: false,
       startX: 0,
       startY: 0,
       scrollLeft: 0,
       dragThreshold: 0,
-      clickTimeout: null
+      clickTimeout: null,
     };
   },
   methods: {
@@ -64,14 +43,14 @@ export default {
       this.scrollLeft = e.currentTarget.scrollLeft;
     },
     stopDrag(e) {
-      if(this.isDragging) {
+      if (this.isDragging) {
         this.isDragging = false;
-        e.preventDefault()
-        return
+        e.preventDefault();
+        return;
       }
-      if(this.isClick) {
-        this.handleToRouter()
-      } 
+      if (this.isClick) {
+        this.handleToRouter();
+      }
     },
     drag(e) {
       if (!this.isDragging) return;
@@ -81,16 +60,16 @@ export default {
       const walk = (x - this.startX) * 2;
       if (Math.abs(walk) > this.dragThreshold) {
         this.isDragging = true;
-        this.isClick = false
+        this.isClick = false;
         e.currentTarget.scrollLeft = this.scrollLeft - walk;
       }
     },
     handleToRouter() {
-      this.toRouter()
+      this.toRouter();
     },
     toRouter() {
-      if(!this.isDragging) {
-        this.$router.push('')
+      if (!this.isDragging) {
+        this.$router.push("");
       }
     },
   },

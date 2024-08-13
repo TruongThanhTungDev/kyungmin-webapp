@@ -1,18 +1,17 @@
 <template>
-  <div>
-    <div class="main-container">
-      <info-card-body-scroll class="mb-28" />
-      <admission-schedule class="mb-20" />
-      <info-card-body-plus-list class="mb-10" />
-    </div>
-    <carousel-infomation />
-    <div class="main-container">
-      <interview-person-card />
-    </div>
-    <media-contents />
-    <campus-gallery/>
-    <faculty-list/>
+  <div class="mx-auto w-full xl:max-w-[1200px] px-4 py-[100px]">
+    <info-card-body-scroll class="mb-28" />
+    <admission-schedule class="mb-20" />
+    <info-card-body-plus-list class="mb-10" />
   </div>
+  <carousel-infomation />
+  <div class="mx-auto w-full xl:max-w-[1200px] px-4 py-[100px]">
+    <interview-person-card />
+  </div>
+
+  <media-contents />
+  <campus-gallery />
+  <faculty-list />
 </template>
 
 <script>
@@ -23,7 +22,7 @@ import CarouselInfomation from "@/components/page/UserPage/CarouselInfomation.vu
 import InterviewPersonCard from "@/components/page/UserPage/InterviewPersonCard.vue";
 import MediaContents from "@/components/page/UserPage/MediaContents.vue";
 import CampusGallery from "@/components/page/UserPage/CampusGallery.vue";
-import FacultyList from '@/components/page/UserPage/FacultyList.vue';
+import FacultyList from "@/components/page/UserPage/FacultyList.vue";
 export default {
   name: "PageNo1",
   components: {
@@ -34,7 +33,7 @@ export default {
     InterviewPersonCard,
     MediaContents,
     CampusGallery,
-    FacultyList
+    FacultyList,
   },
 };
 </script>

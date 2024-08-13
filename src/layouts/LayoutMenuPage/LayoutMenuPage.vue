@@ -3,7 +3,8 @@
   <main>
     <router-view></router-view>
   </main>
-  <footer-component></footer-component>
+  <hr class="w-full h-[3px] bg-[#00274c]" />
+  <footer-component :class-name="'!bg-[#DBDADE]'"></footer-component>
 </template>
 
 <script>
@@ -11,7 +12,7 @@ import HeaderComponent from "@/components/Screens/HeaderComponent.vue";
 import FooterComponent from "@/components/Screens/FooterComponent.vue";
 export default {
   components: { HeaderComponent, FooterComponent },
-  name: "LayoutChildrenPage",
+  name: "LayoutMenuPage",
 };
 </script>
 

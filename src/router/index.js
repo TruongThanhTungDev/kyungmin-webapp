@@ -2,26 +2,53 @@ import { createRouter, createWebHistory } from "vue-router";
 const routes = [
   {
     path: "",
+    meta: { title: "경민대학교 입시사이트 시안" },
     name: "Kyungmin College Home",
-    component: () => import("../layouts/LayoutHomePage/LayoutHomePage.vue"),
+    component: () => import("@/layouts/LayoutHomePage/LayoutHomePage.vue"),
     children: [
       {
         path: "",
         name: "Home",
-        component: () => import("../pages/HomePage/HomeUserPage.vue"),
+        component: () => import("@/pages/HomePage/HomeUserPage.vue"),
       },
     ],
   },
   {
-    path: "/:name",
-    name: "Kyungmin College",
+    path: "/department/:name",
+    name: "DepartmentPage",
     component: () =>
-      import("../layouts/LayoutChildrenPage/LayoutChildrenPage.vue"),
+      import("@/layouts/LayoutChildrenPage/LayoutChildrenPage.vue"),
     children: [
       {
         path: "",
         name: "Page",
-        component: () => import("../pages/ChildrenPage.vue"),
+        component: () => import("@/pages/ChildrenPage.vue"),
+        props: true,
+      },
+    ],
+  },
+  {
+    path: "/menu/:menu",
+    name: "MenuPDFPage",
+    component: () => import("@/layouts/LayoutMenuPage/LayoutMenuPage.vue"),
+    children: [
+      {
+        path: "",
+        name: "Detail Menu",
+        component: () => import("@/pages/DetailMenuPage.vue"),
+        props: true,
+      },
+    ],
+  },
+  {
+    path: "/notice/:notice",
+    name: "NoticePage",
+    component: () => import("@/layouts/LayoutMenuPage/LayoutMenuPage.vue"),
+    children: [
+      {
+        path: "",
+        name: "Detail Notice",
+        component: () => import("@/pages/NoticePage.vue"),
         props: true,
       },
     ],
